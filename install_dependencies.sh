@@ -1,4 +1,5 @@
 #!/bin/sh
+sudo apt update
 sudo apt-get install --yes libeigen3-dev
 sudo apt-get install --yes libboost-all-dev
 sudo apt-get install --yes freeglut3-dev
