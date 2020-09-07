@@ -13,9 +13,9 @@ RUN export uid=1000 gid=1000 && \
 
 USER developer
 ENV HOME /home/developer
-RUN sudo mkdir $HOME/planner_viz
-RUN sudo apt-get install -y cmake build-essential vim libprotobuf-dev protobuf-compiler 
-ADD . $HOME/planner_viz/
-RUN cd $HOME/planner_viz && sudo sh install_dependencies.sh
-RUN cd $HOME/planner_viz && sudo mkdir build && cd build && sudo cmake .. && sudo make
+RUN sudo mkdir $HOME/viz
+RUN sudo apt-get install -y cmake build-essential vim libprotobuf-dev protobuf-compiler apt-utils git
+ADD . $HOME/viz/
+RUN cd $HOME/viz && sudo sh install_dependencies.sh
+RUN cd $HOME/viz && sudo mkdir build && cd build && sudo cmake .. && sudo make
 #CMD /usr/bin/firefox
