@@ -7,7 +7,7 @@ sudo apt-get install --yes libxinerama-dev
 sudo apt-get install --yes libxcursor-dev
 sudo apt-get install --yes libxi-dev
 
-mdkir external && cd external
+mkdir external && cd external
 
 # GLFW
 git clone -n https://github.com/glfw/glfw && cd glfw && git checkout 3.3.2 && cd ..
