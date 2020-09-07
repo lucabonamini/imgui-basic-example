@@ -1,5 +1,6 @@
-FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04 as glvnd
-FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04 
+#FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04 as glvnd
+#FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04 
+FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y firefox sudo libglvnd0 libgl1 libglx0 libegl1 libgles2 cmake build-essential vim libprotobuf-dev protobuf-compiler apt-utils git && rm -rf /var/lib/apt/lists/*
 
