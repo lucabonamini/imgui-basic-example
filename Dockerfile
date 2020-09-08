@@ -1,12 +1,6 @@
-#FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04 as glvnd
-#FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04 
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y firefox sudo libglvnd0 libgl1 libglx0 libegl1 libgles2 cmake build-essential vim libprotobuf-dev protobuf-compiler apt-utils git && rm -rf /var/lib/apt/lists/*
-
-COPY --from=glvnd /usr/share/glvnd/egl_vendor.d/10_nvidia.json /usr/share/glvnd/egl_vendor.d/10_nvidia.json
-ENV NVIDIA_VISIBLE_DEVICES ${NVIDIA_VISIBLE_DEVICES:-all}
-ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphic
+RUN apt-get update && apt-get install -y firefox sudo
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
@@ -19,9 +13,7 @@ RUN export uid=1000 gid=1000 && \
 
 USER developer
 ENV HOME /home/developer
-RUN sudo mkdir $HOME/viz
-RUN sudo apt-get install -y cmake build-essential vim libprotobuf-dev protobuf-compiler apt-utils git
-ADD . $HOME/viz/
-RUN cd $HOME/viz && sudo sh install_dependencies.sh
-RUN cd $HOME/viz && sudo mkdir build && cd build && sudo cmake .. && sudo make
+RUN sudo mkdir planner_viz
+RUN apt-get update && apt install -y cmake build-essential vim libprotobuf-dev protobuf-compiler 
+ADD . $HOME/developer/planner_viz/
 #CMD /usr/bin/firefox
