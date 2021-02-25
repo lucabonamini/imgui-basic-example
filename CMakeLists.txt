@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 2.8.7)
+cmake_minimum_required(VERSION 3.0.0)
 project(imgui-basic-example CXX C)
 
 add_compile_options(-std=c++14)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 if ((NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "Linux"))
     message(FATAL_ERROR "Only Linux OSs are supported.")
