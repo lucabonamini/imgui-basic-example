@@ -35,5 +35,3 @@
 
 #### Run
 - `./bin/imgui-basic-example`
-
-
