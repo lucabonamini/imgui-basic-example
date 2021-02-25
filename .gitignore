@@ -1,3 +1,7 @@
 .vscode
+imgui.ini
 build/
-external/
+bin/
+external/implot/
+external/imgui/
+external/glfw/
